@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>두 개 뽑아서 더하기</title>
+</head>
+
+<body>
+    <!-- https://programmers.co.kr/learn/courses/30/lessons/68644  -->
+    <script>
+        console.log(solution([0,9]))
+        function solution(numbers) {
+            var result = [];
+            var n = numbers;
+            for (i = 0; i < n.length-1; i++) {
+                for (j = 0; j <= n.length-1; j++) {
+                    if(i == j){continue;}
+                    console.log(`i : ${i} // j : ${j}`)
+                    result.push(n[i] + n[j]);
+                }
+            }
+
+
+            result.sort((a, b) => a - b);
+            // console.log(`result : ${result}`) 
+            answer = result.filter((item, index) => {
+                // console.log(`----------------------------------`)
+                // console.log(`item : ${item}`)
+                // console.log(`indexOf(result.indexOf(item)) : ${result.indexOf(item)}`)
+                // console.log(`index : ${index}`)
+                // console.log(`${result.indexOf(item) === index}`)
+
+                return result.indexOf(item) === index
+            });
+            // console.log(`result:${answer}`)
+            return answer;
+        }
+    </script>
+</body>
+
+</html>
