@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신규 아이디 추천</title>
+</head>
+
+<body>
+    <!-- https://programmers.co.kr/learn/courses/30/lessons/72410 -->
+    <script>
+        solution();
+
+        function solution(new_id) {
+            var answer = '';
+            var answer_replace = '';
+            var result = "...!@BaT#*..y.abcdefghijklm";
+            var reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
+            var answerR = "";
+            //1. 대문자 ->소문자 변경
+            console.log(result.toLowerCase())
+            answer_replace = result.toLowerCase();
+            //2. 특수문자 제거
+            answer_replace = answer_replace.replace(reg, '')
+            console.log(answer_replace);
+            // 3. ..을 .으로 치환
+
+                
+            for(i=0;i<answer_replace.length<i++){
+                if(answer_replace.indexOf(answer_replace[i] == i)){
+                    answerR += answer_replace[i] ;
+                }
+            }
+            console.log(answerR)
+
+
+
+            return answer;
+        }
+    </script>
+
+</body>
+
+</html>

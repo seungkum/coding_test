@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        input {
+            padding: 1.2rem 2.5rem;
+            border-radius: 5px;
+            border: 3px solid #047def
+        }
+    </style>
+    <h3>특수문자 체크하는 정규식 테스트</h3>
+    <input type="text" oninput="_events(this)" onchange="_events(this)" placeholder="텍스트를 입력해주세요.">
+
+    <p class='Exec'>Exec: <span></span></p>
+    <p class='Test'>Test: <span></span></p>
+    <p class='Match'>Match: <span></span></p>
+    <p class='Replace'>Replace: <span></span></p>
+    <script>
+        // 특수문자 정규식
+        const reg = /[^\w\sㄱ-힣]|[\_]/g;
+
+        // 정규식에 부합하는 내용을 찾아냄
+        const regExec = (str) => {
+            return reg.exec(str);
+        }
+
+        // 스트링에 해당 정규식이 포함되어있는지
+        const regTest = (str) => {
+            return reg.test(str);
+        }
+
+        // 일치하는 문자열을 찾음
+        const regMatch = (str) => {
+            return str.match(reg).join("");
+        }
+
+        // 특수문자만 지우기
+        const regReplace = (str) => {
+            return str.replace(reg, ``);
+        }
+
+        // 인풋창에 입력 시 이벤트
+        const _events = (target) => {
+            const value = target.value;
+
+            document.querySelector(`.Exec span`).innerHTML = regExec(value);
+            document.querySelector(`.Test span`).innerHTML = regTest(value);
+            document.querySelector(`.Match span`).innerHTML = regMatch(value);
+            document.querySelector(`.Replace span`).innerHTML = regReplace(value);
+        }
+    </script>
+</body>
+
+</html>
